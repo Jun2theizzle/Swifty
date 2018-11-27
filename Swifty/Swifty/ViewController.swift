@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var btn: UIButton!
+    
+    @IBAction func btnClick(_ sender: Any) {
+        btn.setTitle("yay", for: .normal)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
