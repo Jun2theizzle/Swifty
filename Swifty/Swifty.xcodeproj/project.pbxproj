@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073DFB2221AE59C1001F240F /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DFB2121AE59C1001F240F /* PreviewViewController.swift */; };
 		07C74C6C21AB786000CCFA73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C74C6B21AB786000CCFA73 /* AppDelegate.swift */; };
 		07C74C6E21AB786000CCFA73 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C74C6D21AB786000CCFA73 /* ViewController.swift */; };
 		07C74C7121AB786000CCFA73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C74C6F21AB786000CCFA73 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073DFB2121AE59C1001F240F /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		07C74C6821AB786000CCFA73 /* Swifty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Swifty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C74C6B21AB786000CCFA73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07C74C6D21AB786000CCFA73 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				07C74C6B21AB786000CCFA73 /* AppDelegate.swift */,
 				07C74C6D21AB786000CCFA73 /* ViewController.swift */,
 				07C74C6F21AB786000CCFA73 /* Main.storyboard */,
+				073DFB2121AE59C1001F240F /* PreviewViewController.swift */,
 				07C74C7221AB786000CCFA73 /* Assets.xcassets */,
 				07C74C7421AB786000CCFA73 /* LaunchScreen.storyboard */,
 				07C74C7721AB786000CCFA73 /* Info.plist */,
@@ -263,6 +266,7 @@
 			files = (
 				07C74C6E21AB786000CCFA73 /* ViewController.swift in Sources */,
 				07C74C6C21AB786000CCFA73 /* AppDelegate.swift in Sources */,
+				073DFB2221AE59C1001F240F /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +24,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dMI-vq-lFZ">
+            <objects>
+                <viewController id="vas-ct-I2n" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EaT-x2-gfe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Pa-eZ-enq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gin-Pi-U1P">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yg-ZW-ucc">
+                                        <rect key="frame" x="17" y="15" width="48" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5u-0C-kHl">
+                                        <rect key="frame" x="327" y="15" width="34" height="30"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8Yg-ZW-ucc" secondAttribute="bottom" constant="15" id="0nz-ZN-SPv"/>
+                                    <constraint firstAttribute="bottom" secondItem="A5u-0C-kHl" secondAttribute="bottom" constant="15" id="Mpl-qT-cdb"/>
+                                    <constraint firstItem="A5u-0C-kHl" firstAttribute="top" secondItem="Gin-Pi-U1P" secondAttribute="top" constant="15" id="QPy-6h-T1b"/>
+                                    <constraint firstItem="8Yg-ZW-ucc" firstAttribute="top" secondItem="Gin-Pi-U1P" secondAttribute="top" constant="15" id="ctA-SD-eLr"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5u-0C-kHl" secondAttribute="trailing" constant="14" id="jmX-XK-GE7"/>
+                                    <constraint firstItem="8Yg-ZW-ucc" firstAttribute="leading" secondItem="Gin-Pi-U1P" secondAttribute="leading" constant="17" id="vvT-Fs-Jhl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gin-Pi-U1P" firstAttribute="leading" secondItem="N15-wD-zco" secondAttribute="leading" id="eC0-qJ-oVt"/>
+                            <constraint firstItem="Gin-Pi-U1P" firstAttribute="top" secondItem="EaT-x2-gfe" secondAttribute="top" id="jKO-p5-wCh"/>
+                            <constraint firstItem="Gin-Pi-U1P" firstAttribute="trailing" secondItem="N15-wD-zco" secondAttribute="trailing" id="joK-Hq-ECT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="N15-wD-zco"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sdp-CD-yGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="374.66266866566718"/>
         </scene>
     </scenes>
 </document>

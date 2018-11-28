@@ -9,13 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var btn: UIButton!
     
-    @IBAction func btnClick(_ sender: Any) {
-        btn.setTitle("yay", for: .normal)
+    @IBAction func cameraBtn_TouchUpInside(_ sender: Any) {
+        performSegue(withIdentifier: "showPhoto_segue", sender: nil)
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
