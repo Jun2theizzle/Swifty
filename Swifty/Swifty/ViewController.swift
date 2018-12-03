@@ -23,11 +23,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        setupCaptureSession()
-        setupDevice()
-        setupInputOutput()
-        setupPreviewLayer()
-        startRunningCaptureSession()
+//        setupCaptureSession()
+//        setupDevice()
+//        setupInputOutput()
+//        setupPreviewLayer()
+//        startRunningCaptureSession()
     }
     
     func setupCaptureSession() {
@@ -78,7 +78,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cameraBtn_TouchUpInside(_ sender: Any) {
-        performSegue(withIdentifier: "showPhoto_segue", sender: nil)
+//        performSegue(withIdentifier: "showPhoto_segue", sender: nil)
+        let vc = PreviewViewController(nibName: "PreviewViewController", bundle: nil)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

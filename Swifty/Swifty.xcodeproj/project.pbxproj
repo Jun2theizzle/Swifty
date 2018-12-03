@@ -15,6 +15,7 @@
 		07C74C7621AB786000CCFA73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C74C7421AB786000CCFA73 /* LaunchScreen.storyboard */; };
 		07C74C8121AB786000CCFA73 /* SwiftyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C74C8021AB786000CCFA73 /* SwiftyTests.swift */; };
 		07C74C8C21AB786000CCFA73 /* SwiftyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C74C8B21AB786000CCFA73 /* SwiftyUITests.swift */; };
+		07CAD49221B4E91F0044D637 /* holyship_lineup.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CAD49121B4E91F0044D637 /* holyship_lineup.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		07C74C8721AB786000CCFA73 /* SwiftyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C74C8B21AB786000CCFA73 /* SwiftyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUITests.swift; sourceTree = "<group>"; };
 		07C74C8D21AB786000CCFA73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CAD49121B4E91F0044D637 /* holyship_lineup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holyship_lineup.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		07C74C6A21AB786000CCFA73 /* Swifty */ = {
 			isa = PBXGroup;
 			children = (
+				07CAD48E21B259F50044D637 /* Lineups */,
 				07C74C6B21AB786000CCFA73 /* AppDelegate.swift */,
 				07C74C6D21AB786000CCFA73 /* ViewController.swift */,
 				07C74C6F21AB786000CCFA73 /* Main.storyboard */,
@@ -126,6 +129,14 @@
 				07C74C8D21AB786000CCFA73 /* Info.plist */,
 			);
 			path = SwiftyUITests;
+			sourceTree = "<group>";
+		};
+		07CAD48E21B259F50044D637 /* Lineups */ = {
+			isa = PBXGroup;
+			children = (
+				07CAD49121B4E91F0044D637 /* holyship_lineup.png */,
+			);
+			path = Lineups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 			files = (
 				07C74C7621AB786000CCFA73 /* LaunchScreen.storyboard in Resources */,
 				07C74C7321AB786000CCFA73 /* Assets.xcassets in Resources */,
+				07CAD49221B4E91F0044D637 /* holyship_lineup.png in Resources */,
 				07C74C7121AB786000CCFA73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,9 +365,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = Lol;
+				DEVELOPMENT_TEAM = 4M9JS46YUM;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -375,6 +389,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -413,9 +428,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = Lol;
+				DEVELOPMENT_TEAM = 4M9JS46YUM;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -428,6 +445,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

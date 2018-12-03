@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="475.36231884057975" y="132.06521739130434"/>
         </scene>
-        <!--View Controller-->
+        <!--Preview View Controller-->
         <scene sceneID="eua-8V-hZQ">
             <objects>
-                <viewController id="w3d-HZ-4mL" sceneMemberID="viewController">
+                <viewController id="w3d-HZ-4mL" customClass="PreviewViewController" customModule="Swifty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yoe-4s-Fsl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,6 +107,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rNF-Xz-0UX"/>
                     </view>
+                    <connections>
+                        <outlet property="saveBtn" destination="nUr-vp-ENZ" id="4NZ-52-Cla"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztN-DL-lgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Zth-nk-lCj" userLabel="Exit" sceneMemberID="exit"/>

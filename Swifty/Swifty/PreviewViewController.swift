@@ -10,6 +10,11 @@ import UIKit
 
 class PreviewViewController: UIViewController {
 
+    var username:String = ""
+
+    @IBOutlet weak var saveBtn: UIButton!
+    
+    
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
     }
     
