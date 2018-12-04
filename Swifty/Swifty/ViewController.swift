@@ -78,10 +78,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func cameraBtn_TouchUpInside(_ sender: Any) {
-//        performSegue(withIdentifier: "showPhoto_segue", sender: nil)
-        let vc = PreviewViewController(nibName: "PreviewViewController", bundle: nil)
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
+        performSegue(withIdentifier: "showPhoto_segue", sender: nil)
 
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is PreviewViewController
+        {
+            let vc = segue.destination as? PreviewViewController
+            vc?.picturePath = "Lineups/holyship_lineup.png"
+        }
+    }
+
+}

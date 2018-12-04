@@ -1,0 +1,5 @@
+target 'Swifty' do
+    pod 'SwiftyJSON', :git =>'https://github.com/SwiftyJSON/SwiftyJSON.git'
+    use_frameworks!
+
+end

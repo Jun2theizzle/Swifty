@@ -18,7 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zC-KC-Bbp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="holyship_lineup.png" translatesAutoresizingMaskIntoConstraints="NO" id="bwc-d0-4B6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <button opaque="NO" clipsSubviews="YES" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zC-KC-Bbp">
                                 <rect key="frame" x="177" y="656" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -34,11 +37,25 @@
                                     <action selector="cameraBtn_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5qg-Uo-7Yh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ASSUME THIS PICTURE WAS TAKEN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQy-Ww-x9N">
+                                <rect key="frame" x="35" y="124" width="344" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="bwc-d0-4B6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1HI-ef-swF"/>
                             <constraint firstItem="7zC-KC-Bbp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4aF-qB-U4D"/>
+                            <constraint firstItem="rQy-Ww-x9N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="Ddq-lL-VDA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rQy-Ww-x9N" secondAttribute="trailing" constant="44" id="GVf-Qj-KAz"/>
+                            <constraint firstItem="bwc-d0-4B6" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="TCA-ek-Ab5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7zC-KC-Bbp" secondAttribute="bottom" constant="20" id="XMR-3J-YxL"/>
+                            <constraint firstItem="bwc-d0-4B6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iGW-61-gDz"/>
+                            <constraint firstItem="rQy-Ww-x9N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="nMq-KG-EHi"/>
+                            <constraint firstItem="bwc-d0-4B6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ymp-fZ-CWd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -109,6 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="saveBtn" destination="nUr-vp-ENZ" id="4NZ-52-Cla"/>
+                        <outlet property="uiBackground" destination="KFN-dy-Xjr" id="byE-bZ-4Rv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztN-DL-lgJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,4 +153,7 @@
             <point key="canvasLocation" x="-425" y="132"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="holyship_lineup.png" width="450" height="562"/>
+    </resources>
 </document>

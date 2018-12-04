@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class PreviewViewController: UIViewController {
 
-    var username:String = ""
-
-    @IBOutlet weak var saveBtn: UIButton!
+    var picturePath:String = ""
     
+    let session = URLSession.shared
+    var googleAPIKey = "some api key"
+    var googleURL: URL {
+        return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
+    }
+    
+    @IBOutlet weak var saveBtn: UIButton!
+
+    @IBOutlet weak var uiBackground: UIImageView!
     
     @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
     }
@@ -23,19 +31,18 @@ class PreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        uiBackground.image = UIImage(named: "Lineups/holyship_lineup.png")
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func doVision(_ request: URLRequest) { // _ is to be able to call function with named params, ie doVision(request)
+        let task = URLSessionDataTask = session.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else { // guard used to unwrap optionals, instead of doing if if let someVar = variable.value {}
+                print(error?.localizedDescription ?? "")
+                return
+            }
+        }
     }
-    */
 
 }
