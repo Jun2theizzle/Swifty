@@ -58,10 +58,11 @@ class PreviewViewController: UIViewController {
     func analyzeResults(_ results: Data) {
         do {
             let json = try JSON(data: results)
-            
+            var artistsRaw: [String] = [];
             let textAnnotations = json["responses"][0]["textAnnotations"].array
             for annotation in textAnnotations! {
-                print(annotation["description"])
+                print(annotation["description"].rawString()!)
+                artistsRaw.append(annotation["description"].rawString()!)
             }
         } catch let error as NSError {
             print(error)
