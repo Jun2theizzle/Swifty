@@ -9,7 +9,10 @@
 import UIKit
 import SwiftyJSON
 
-class PreviewViewController: UIViewController {
+class PreviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var sections:[String] = []
+    var fruit = ["Apple", "Orange", "Mango"]
+    var vegetables = ["Carrot", "Broccoli", "Cucumber"]
 
     var picturePath:String = ""
     let session = URLSession.shared
@@ -18,15 +21,47 @@ class PreviewViewController: UIViewController {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
     
-    @IBOutlet weak var saveBtn: UIButton!
-
-    @IBOutlet weak var uiBackground: UIImageView!
-    
-    @IBAction func saveBtn_TouchUpInside(_ sender: Any) {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
     
-    @IBAction func cancelBtn_TouchUpInside(_ sender: Any) {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            // Fruit Section
+            return fruit.count
+        case 1:
+            // Vegetable Section
+            return vegetables.count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlainCell", for: indexPath)
+        // Depending on the section, fill the textLabel with the relevant text
+        switch indexPath.section {
+            case 0:
+                // Fruit Section
+                cell.textLabel?.text = fruit[indexPath.row]
+                break
+            case 1:
+                // Vegetable Section
+                cell.textLabel?.text = vegetables[indexPath.row]
+                break
+            default:
+                break
+        }
+    
+        // Return the configured cell
+        return cell
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +69,14 @@ class PreviewViewController: UIViewController {
         //let image = UIImage(contentsOfFile: "Lineups/holyship_lineup.png")
         // Base64 encode the image and create the request
  
-        
         let image: UIImage? = UIImage(named: "HolyShip")
         if image != nil {
-            let binaryImageData = base64EncodeImage(image!)
-            createRequest(with: binaryImageData)
+            if !googleAPIKey.isEmpty {
+                let binaryImageData = base64EncodeImage(image!)
+                createRequest(with: binaryImageData)
+            }
         }
+        sections = ["Hardstyle", "Trance"]
     }
     
     func getDirectoryPath() -> String {
