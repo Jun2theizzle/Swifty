@@ -17,4 +17,8 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    events:
+      - http:
+          path: artists
+          method: post
 
