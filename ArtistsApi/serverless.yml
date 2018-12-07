@@ -1,0 +1,20 @@
+
+# Happy Coding!
+
+service: ArtistsApi # NOTE: update this with your service name
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+
+provider:
+  name: aws
+  runtime: python3.6
+
+functions:
+  hello:
+    handler: handler.hello
+
