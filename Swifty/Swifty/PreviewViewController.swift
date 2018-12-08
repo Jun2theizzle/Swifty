@@ -10,9 +10,8 @@ import UIKit
 import SwiftyJSON
 
 class PreviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var sections:[String] = []
-    var fruit = ["Apple", "Orange", "Mango"]
-    var vegetables = ["Carrot", "Broccoli", "Cucumber"]
+    
+    var sections:[String: [String]] = [:]
 
     var picturePath:String = ""
     let session = URLSession.shared
@@ -21,54 +20,12 @@ class PreviewViewController: UIViewController, UITableViewDataSource, UITableVie
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            // Fruit Section
-            return fruit.count
-        case 1:
-            // Vegetable Section
-            return vegetables.count
-        default:
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PlainCell", for: indexPath)
-        // Depending on the section, fill the textLabel with the relevant text
-        switch indexPath.section {
-            case 0:
-                // Fruit Section
-                cell.textLabel?.text = fruit[indexPath.row]
-                break
-            case 1:
-                // Vegetable Section
-                cell.textLabel?.text = vegetables[indexPath.row]
-                break
-            default:
-                break
-        }
-    
-        // Return the configured cell
-        return cell
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //let image = UIImage(contentsOfFile: "Lineups/holyship_lineup.png")
         // Base64 encode the image and create the request
- 
+        
         let image: UIImage? = UIImage(named: "HolyShip")
         if image != nil {
             if !googleAPIKey.isEmpty {
@@ -76,8 +33,28 @@ class PreviewViewController: UIViewController, UITableViewDataSource, UITableVie
                 createRequest(with: binaryImageData)
             }
         }
-        sections = ["Hardstyle", "Trance"]
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Array(sections.keys)[section]
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Array(sections.values)[section].count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PlainCell", for: indexPath)
+        // Depending on the section, fill the textLabel with the relevant text
+        cell.textLabel?.text = Array(sections.values)[indexPath.section][indexPath.row]
+        // Return the configured cell
+        return cell
+    }
+    
     
     func getDirectoryPath() -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -101,11 +78,30 @@ class PreviewViewController: UIViewController, UITableViewDataSource, UITableVie
                 print(annotation["description"].rawString()!)
                 artistsRaw.append(annotation["description"].rawString()!)
             }
+            
+            let glossary = Glossary.init()
+            // remove the element that contains the entire text found
+            artistsRaw.removeFirst(1)
+            for artist in artistsRaw {
+                let found: Artist? = glossary.findMatching(artist)
+                if let artistExists = found {
+                    for genre in artistExists.generes! {
+                        if sections[genre] != nil {
+                            sections[genre]!.append(artistExists.name)
+                        }
+                        else {
+                            sections[genre] = [artistExists.name]
+                        }
+                    }
+                }
+            }
+            
+
         } catch let error as NSError {
             print(error)
         }
-
     }
+    
     
     func base64EncodeImage(_ image: UIImage) -> String {
         var imagedata = image.pngData()

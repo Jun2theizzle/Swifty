@@ -1,8 +1,14 @@
 PODS:
+  - Fuse (1.2.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
+  - Fuse
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Fuse
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -14,8 +20,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  Fuse: 287bd95a5c8dbfe6c41af519eaf48856aa1a28f6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: ac8f1fb6cb12139b669a093cffe3076cee7e586a
+PODFILE CHECKSUM: 167160fae39e80f52ba5b422633543e6fa82c4df
 
 COCOAPODS: 1.5.3

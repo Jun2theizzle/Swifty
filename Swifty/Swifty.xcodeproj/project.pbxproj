@@ -15,6 +15,8 @@
 		07C74C7621AB786000CCFA73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C74C7421AB786000CCFA73 /* LaunchScreen.storyboard */; };
 		07C74C8121AB786000CCFA73 /* SwiftyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C74C8021AB786000CCFA73 /* SwiftyTests.swift */; };
 		07C74C8C21AB786000CCFA73 /* SwiftyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C74C8B21AB786000CCFA73 /* SwiftyUITests.swift */; };
+		07C9F12521BB67E1001BC1ED /* Glossary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9F12421BB67E1001BC1ED /* Glossary.swift */; };
+		07C9F12721BB78AC001BC1ED /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C9F12621BB78AC001BC1ED /* Artist.swift */; };
 		07CAD49221B4E91F0044D637 /* holyship_lineup.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CAD49121B4E91F0044D637 /* holyship_lineup.png */; };
 		07E2372221B63FCC00424294 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 07E2372121B63FCC00424294 /* Podfile */; };
 		E35A1176071449FEBE5ED850 /* Pods_Swifty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19BDAF7A1E1D7B772AE1D06 /* Pods_Swifty.framework */; };
@@ -52,8 +54,10 @@
 		07C74C8721AB786000CCFA73 /* SwiftyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C74C8B21AB786000CCFA73 /* SwiftyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUITests.swift; sourceTree = "<group>"; };
 		07C74C8D21AB786000CCFA73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07C9F12421BB67E1001BC1ED /* Glossary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Glossary.swift; sourceTree = "<group>"; };
+		07C9F12621BB78AC001BC1ED /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		07CAD49121B4E91F0044D637 /* holyship_lineup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = holyship_lineup.png; sourceTree = "<group>"; };
-		07E2372121B63FCC00424294 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		07E2372121B63FCC00424294 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2F3E3FB09FC7CF887ECE3802 /* Pods_SwiftyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		360CA172710A61EFA3FEF682 /* Pods_SwiftyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF5844641A2D94CC97DD672 /* Pods-Swifty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swifty.release.xcconfig"; path = "Pods/Target Support Files/Pods-Swifty/Pods-Swifty.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				07C74C7221AB786000CCFA73 /* Assets.xcassets */,
 				07C74C7421AB786000CCFA73 /* LaunchScreen.storyboard */,
 				07C74C7721AB786000CCFA73 /* Info.plist */,
+				07C9F12421BB67E1001BC1ED /* Glossary.swift */,
+				07C9F12621BB78AC001BC1ED /* Artist.swift */,
 			);
 			path = Swifty;
 			sourceTree = "<group>";
@@ -315,12 +321,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Swifty/Pods-Swifty-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Fuse/Fuse.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +367,8 @@
 			files = (
 				07C74C6E21AB786000CCFA73 /* ViewController.swift in Sources */,
 				07C74C6C21AB786000CCFA73 /* AppDelegate.swift in Sources */,
+				07C9F12721BB78AC001BC1ED /* Artist.swift in Sources */,
+				07C9F12521BB67E1001BC1ED /* Glossary.swift in Sources */,
 				073DFB2221AE59C1001F240F /* PreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
