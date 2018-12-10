@@ -29,19 +29,16 @@ class Glossary {
         let fuse = Fuse()
         var highestMatching: Double = 0.0
         var foundArtist: Artist? = nil
-
         for artist in self.artists {
-            do {
-                let result = fuse.search(name, in: artist.name)
-                if let score = result?.score, score > highestMatching {
-                    foundArtist = artist
-                    highestMatching = score
-                }
-            } catch {
-                print(error)
+            let result = fuse.search(name, in: artist.name)
+            if let score = result?.score, score > highestMatching {
+
+                foundArtist = artist
+                highestMatching = score
             }
-//
+
         }
+        
         return foundArtist
     }
 }

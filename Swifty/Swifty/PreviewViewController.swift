@@ -11,11 +11,12 @@ import SwiftyJSON
 
 class PreviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var sections:[String: [String]] = [:]
 
+    @IBOutlet weak var tableView: UITableView!
+    var sections:[String: [String]] = [:]
     var picturePath:String = ""
     let session = URLSession.shared
-    var googleAPIKey = ""
+    var googleAPIKey = "YOUR FAVORITE API KEY HERE"
     var googleURL: URL {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
@@ -31,6 +32,7 @@ class PreviewViewController: UIViewController, UITableViewDataSource, UITableVie
             if !googleAPIKey.isEmpty {
                 let binaryImageData = base64EncodeImage(image!)
                 createRequest(with: binaryImageData)
+                print("request done")
             }
         }
     }
@@ -70,36 +72,46 @@ class PreviewViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func analyzeResults(_ results: Data) {
-        do {
-            let json = try JSON(data: results)
-            var artistsRaw: [String] = [];
-            let textAnnotations = json["responses"][0]["textAnnotations"].array
-            for annotation in textAnnotations! {
-                print(annotation["description"].rawString()!)
-                artistsRaw.append(annotation["description"].rawString()!)
-            }
-            
-            let glossary = Glossary.init()
-            // remove the element that contains the entire text found
-            artistsRaw.removeFirst(1)
-            for artist in artistsRaw {
-                let found: Artist? = glossary.findMatching(artist)
-                if let artistExists = found {
-                    for genre in artistExists.generes! {
-                        if sections[genre] != nil {
-                            sections[genre]!.append(artistExists.name)
-                        }
-                        else {
-                            sections[genre] = [artistExists.name]
+        DispatchQueue.main.async(execute: {
+            do {
+                let json = try JSON(data: results)
+                var artistsRaw: [String] = [];
+                let textAnnotations = json["responses"][0]["textAnnotations"].array
+                for annotation in textAnnotations! {
+                    artistsRaw.append(annotation["description"].rawString()!)
+                }
+                // init glossary class that holds the artists
+                let glossary = Glossary.init()
+                
+                // remove the element that contains the entire text found
+                artistsRaw.removeFirst(1)
+                
+                for artist in artistsRaw {
+                    // find a potential artists
+                    let found: Artist? = glossary.findMatching(artist)
+                    if let artistExists = found {
+                        // if they are found, add them to the dictionary
+                        for genre in artistExists.generes! {
+                            if self.sections[genre] != nil {
+                                self.sections[genre]!.append(artistExists.name)
+                            }
+                            else {
+                                self.sections[genre] = [artistExists.name]
+                            }
                         }
                     }
                 }
+                // The fuzzy matching library is kinda iffy, so clean up the duplicates from the dictionary afterwards
+                for (key, _) in self.sections {
+                    self.sections[key] = Array(Set(self.sections[key]!))
+                }
+                
+                self.tableView.reloadData()
+                print("finished parsing")
+            } catch let error as NSError {
+                print(error)
             }
-            
-
-        } catch let error as NSError {
-            print(error)
-        }
+        })
     }
     
     
